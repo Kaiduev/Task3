@@ -1,0 +1,119 @@
+{% extends 'movies/base.html' %}
+<div id="main">
+<div id="content">
+<div class="box">
+<div class="head">
+<div class="film">
+<div class="film-show">
+  {% block content %}
+<div class="film-show__img">
+<img src="{{ movie.poster.url }}" alt="film.icon">
+</div>
+  <div>
+    <br>
+  </div>
+<div class="film-show__box">
+<div class="film-show__box-text">
+<p>Название</p>
+<a href="#">{{ movie.title }}</a>
+</div>
+<div class="film-show__box-text">
+<p>Слоган</p>
+<a href="#">{{ movie.tagline }}</a>
+</div>
+<div class="film-show__box-text">
+<p>Дата выхода</p>
+<a href="#">{{ movie.year }}</a>
+</div>
+<div class="film-show__box-text">
+<p>Страна</p>
+<a href="#">{{ movie.country }}</a>
+</div>
+<div class="film-show__box-text">
+<p>Режиссеры</p>
+{% for director in movie.directors.all %}
+<a href="#">{{ director.name }}</a>
+{% endfor %}
+</div>
+<div class="film-show__box-text">
+<p>Актеры</p>
+{% for actor in movie.actors.all %}
+<a href="#">{{ actor.name }}</a>
+{% endfor %}
+</div>
+<div class="film-show__box-text">
+<p>Жанры</p>
+{% for genre in movie.genres.all %}
+<a href="#">{{ genre.name }}</a>
+{% endfor %}
+</div>
+<div class="film-show__box-text">
+<p>Премьера</p>
+<p>{{ movie.wold_premiere }}</p>
+</div>
+<div class="film-show__box-text">
+<p>Бюджет</p>
+<p>{{ movie.butget }}$</p>
+</div>
+<div class="film-show__box-text">
+<p>Сборы в мире</p>
+<p>{{ movie.fees_in_world }}$</p>
+</div>
+</div>
+</div>
+  <div class="description">
+  <p>
+    {% for image in movie.movieshots_set.all %}
+    <img src="{{ image.image.url }}" class="img-movie-shots" alt="{{ image.description }}">
+    {% endfor %}
+  </p>
+</div>
+<div class="description">
+<p>
+{{ movie.description|safe }}
+</p>
+</div>
+</div>
+</div>
+  <h3 class="comment">Оставить коментарий</h3>
+  <div class="all_comment">
+<div class="half-width">
+  <form action="{% url 'add_review' movie.id%}" method="post" class="form-name">
+    {% csrf_token %}
+    <p><strong>Имя</strong></p>
+     <input id="1" type="text"  name="name">
+    <p><strong>Коментарий</strong></p>
+    <textarea id="form-control border" rows="5" name="text"></textarea>
+   <p><strong>email</strong></p>
+    <input  type="email" name="email">
+    <button type="submit" class="mt-3 btn-success btn-block py-3" style=" display: inline-block;
+  color: green;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;">
+      Отправить
+    </button>
+   </form>
+</div>
+  </div>
+  <h3 class="comment">Коментарии</h3>
+  {% for review in movie.reviews_set.all %}
+  <div class="comment">
+    <img src="" class="mr-3 ing-fluid" alt="image">
+    <div class="media-body mt-4">
+      <h5 class="mt-0 editContent">
+        {{ review.name }}
+      </h5>
+      <p class="mt-2" editContent>
+        {{ review.text }}
+      </p>
+    </div>
+  </div>
+   {% endfor %}
+
+{% endblock content %}

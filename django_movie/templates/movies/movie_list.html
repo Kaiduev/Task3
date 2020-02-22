@@ -1,0 +1,77 @@
+<!-- START PAGE SOURCE -->
+{% extends 'movies/base.html' %}
+    <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+          <h2>POPULAL FILMS</h2>
+          <p class="text-right"><a href="#">See all</a></p>
+        </div>
+        {% block content %}
+        {% for movie in movie_list %}
+        <div class="movie">
+          <div class="movie-image"> <span class="play">
+            <span class="name"><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></span>
+          </span>
+            <a href="www.google.com"><img src="{{ movie.poster.url }}" alt="" /></a>
+
+            <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"></div>
+            </div>
+            <span class="comments"></span>
+          </div>
+          </div>
+
+        </div>
+        {% endfor %}
+            <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+      <div class="News-coming">
+    <div id="news">
+      <div class="head">
+        <h3>NEWS</h3>
+        <p class="text-right"><a href="https://www.kinonews.ru">Смотреть все</a></p>
+      </div>
+      <div class="content">
+        <p class="date">16.02.2020</p>
+        <h4>Объявлены обладатели премии KinoNews 2020</h4>
+        <p>Издание "Новости кино" представило список обладателей главной независимой кинопремии Рунета - KinoNews 2020. Он был составлен в результате голосования,проходившего в два этапа. Лучшим фильмом 2019 года признана военная дама "1917", ее создатель Сэм Мендес одержал победу в номинации "лучший режиссер".</p>
+        <a href="https://www.kinonews.ru/news_92035/">Читать больше</a> </div>
+      <div class="content">
+        <p class="date">16.02.2020</p>
+        <h4>Гай Ричи снимет продолжение "Аладдина"</h4>
+        <p>Создатель фильма "Аладдин" Гай Ричи вернется в режиссерское кресло, чтобы снять продолжение. Такой информацией располагает издание The Hollywood Reportrer. Также ожидается, что исполнители главных ролей Уилл Смит, Мена Массуд и Наоми Скотт станут участниками сиквела, хотя контракты с ними пока еще не подписаны.</p>
+        <a href="https://www.kinonews.ru/news_92027/">Читать больше</a></div>
+      <div class="content">
+        <p class="date">16.02.2020</p>
+        <h4>Walt Disney снимет фильм о Рапунцель</h4>
+        <p>Студия Walt Disney намерена снять полнометражный игровой фильм по сказке братьев Гримм о запертой в башне девушке с волшебными волосами по имени Рапунцель. Как сообщает со ссылкой на свои источники издание The DisInsider, черновой вариант сценария подготовит Эшли Пауэлл, которая ранее работала над созданием другой сказки - "Щелкунчик и четыре королевства".</p>
+        <a href="https://www.kinonews.ru/news_92026/">Читать больше</a> </div>
+    </div>
+    <div id="coming">
+      <div class="head">
+        <h3>Блишайшие премьеры<strong>!</strong></h3>
+        <p class="text-right"><a href="https://www.kinoafisha.info/releases/">Смотреть все</a></p>
+      </div>
+      <div class="content">
+        <h4>Эксперимент "За стеклом"</h4>
+        <a href="#"><img src="https://www.kinonews.ru/insimgs/2019/poster/thumbs/poster91167_1.jpg" alt="" /></a>
+        <p>После того как восемь знаменитостей со всего мира принимают приглашение принять участие в онлайн-реалити-шоу, они вскоре понимают, что играют за свою жизнь, поскольку те, кто проголосовал, страдают от ужасных последствий, транслируемых в прямом эфире на весь мир.</p>
+        <a href="https://www.kinonews.ru/movie_266917/funhouse">Читать больше</a></div>
+      <div class="cl"> </div>
+      <div class="content">
+        <h4>2040: Будущее ждет</h4>
+        <a href="#"><img src="https://www.kinonews.ru/insimgs/2019/poster/thumbs/poster91188_1.jpg" alt="" /></a>
+        <p>Документальный фильм, который показывает возможное будущее, но жизненно важен именно сейчас. Отмеченный наградами режиссер Дэймон Гамо отправляется в путешествие, чтобы исследовать, как будет выглядеть будущее к 2040 году, если мы просто примем лучшие решения, уже доступные нам, чтобы улучшить нашу планету. Созданный как визуальное письмо к своей 4-летней дочери, Дэймон смешивает традиционные документальные кадры с высококачественными визуальными эффектами, чтобы создать понятный образ будущего для своей дочери и всей планеты. ....</p>
+        <a href="https://www.kinonews.ru/movie_283124/2040">Читать больше</a>
+      </div>
+    </div>
+      </div>
+    <div class="cl">&nbsp;</div>
+  </div>
+{% endblock content %}
+
+
